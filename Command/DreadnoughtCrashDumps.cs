@@ -21,7 +21,7 @@ namespace SupportTool.Command
                 .Where(delegate (DirectoryInfo dir)
                 {
                     return dir.EnumerateFiles()
-                        .Where(f => f.Name.Equals("UE4Minidump.dmp"))
+                        .Where(f => f.Name.EndsWith(".dmp"))
                         .Count() > 0;
                 })
                 .ToList();
