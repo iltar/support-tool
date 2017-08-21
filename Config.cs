@@ -36,7 +36,7 @@ namespace SupportTool
 
         public bool CanCreateArchive
         {
-            get { return IncludeDreadnoughtLogs || IncludeDxDiag || IncludeMsInfo || IncludeHostDeveloper; }
+            get { return IncludeDreadnoughtLogs || IncludeDreadnoughtCrashDumps || IncludeDxDiag || IncludeMsInfo || IncludeHostDeveloper; }
         }
 
         public Config(string version, string logFileLocation, string zipFileLocation, string zipFileName, string versionInfoFileUrl, bool isElevated)
