@@ -114,17 +114,7 @@ namespace SupportTool
         {
             textBoxLogger.Clear();
 
-            try
-            {
-                runner.Run(commands);
-            }
-            catch (Exception exception)
-            {
-                runner.reportException(exception);
-#if DEBUG
-                throw exception;
-#endif
-            }
+            runner.Run(commands);
         }
 
         private void FinishAggregateData(object sender, RunWorkerCompletedEventArgs e)

@@ -20,6 +20,7 @@ namespace SupportTool
         {
             Propagation propagation = new Propagation();
 
+
             foreach (CommandInterface command in commands)
             {
                 if (propagation.ShouldStop)
@@ -28,13 +29,18 @@ namespace SupportTool
                     return;
                 }
 
-                command.Execute(config, fileAggregator, logger, propagation);
+                try
+                {
+                    command.Execute(config, fileAggregator, logger, propagation);
+                }
+                catch (Exception e)
+                {
+                    logger.Log(e.ToString());
+#if DEBUG
+                    throw e;
+#endif
+                }
             }
-        }
-        
-        public void reportException(Exception e)
-        {
-            logger.Log(e.ToString());
         }
     }
 }
