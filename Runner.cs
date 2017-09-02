@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace SupportTool
 {
@@ -29,6 +30,11 @@ namespace SupportTool
 
                 command.Execute(config, fileAggregator, logger, propagation);
             }
+        }
+        
+        public void reportException(Exception e)
+        {
+            logger.Log(e.ToString());
         }
     }
 }
